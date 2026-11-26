@@ -1,0 +1,62 @@
+common:
+  execute: true
+  group_name: ur_manipulator
+  ik_link: tool0
+  target_frame: table
+  planning_frame: base_link
+  max_velocity: 0.1
+  max_acceleration: 0.1
+  ik_timeout_sec: 1.0
+  print_joints: true
+
+steps:
+  - name: init
+    target_xyz: [-11.6, -346, 557]
+    target_rpy: [85.67, -2.5, 0]
+    seed_from_joint_states: false
+    seed_joints: [-60, -60, -100, 170, -60, 0]
+    duration: 4.0
+    sleep_after: 1.0
+
+  - name: approach_wave
+    target_xyz: [-148.8, -292, 710.2]
+    target_rpy: [0.0, 5.0, 87.0]
+    seed_from_joint_states: true
+    duration: 2.0
+    sleep_after: 0.5
+
+  - name: wave_left
+    target_xyz: [-99.1, -295.8, 696.9]
+    target_rpy: [30.0, 5.0, 87.0]
+    seed_from_joint_states: true
+    duration: 2.0
+    sleep_after: 0.5
+
+  - name: wave_right
+    target_xyz: [-219.3, -290.9, 681.1]
+    target_rpy: [-45.0, 5.0, 87.0]
+    seed_from_joint_states: true
+    duration: 2.0
+    sleep_after: 0.5
+
+  - name: wave_left
+    target_xyz: [-99.1, -295.8, 696.9]
+    target_rpy: [30.0, 5.0, 87.0]
+    seed_from_joint_states: true
+    duration: 2.0
+    sleep_after: 0.5
+
+  - name: wave_right
+    target_xyz: [-219.3, -290.9, 681.1]
+    target_rpy: [-45.0, 5.0, 87.0]
+    seed_from_joint_states: true
+    duration: 2.0
+    sleep_after: 0.5
+
+  - name: home_end
+    target_xyz: [0, -400, 500]
+    target_rpy: [90.0, 0.0, 0.0]
+    seed_from_joint_states: false
+    seed_joints: [-60, -60, -100, 170, -60, 0]
+    duration: 4.0
+    sleep_after: 1.0
